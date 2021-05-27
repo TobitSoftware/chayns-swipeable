@@ -1,0 +1,10 @@
+.swipeable {
+  position: relative;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.swipeable .swipeable__content {
+  width: 100%;
+  overflow: hidden;
+}

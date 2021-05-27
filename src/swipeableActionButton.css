@@ -1,0 +1,25 @@
+.swipeable-action-button {
+  background: none;
+  appearance: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 88%;
+}
+
+.swipeable-action-button i {
+  color: white !important;
+}
+
+.swipeable-action-button__icon + .swipeable-action-button__text {
+  margin-top: 4px;
+}

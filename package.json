@@ -11,5 +11,12 @@
   ],
   "repository": "github:tobitsoftware/chayns-swipeable",
   "license": "MIT",
-  "author": "Leo Driesch <leonhard.driesch@tobit.com> (labs.tobit.com)"
+  "author": "Leo Driesch <leonhard.driesch@tobit.com> (labs.tobit.com)",
+  "peerDependencies": {
+    "framer-motion": ">=4",
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.8"
+  }
 }
