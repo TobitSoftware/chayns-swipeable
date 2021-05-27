@@ -1,0 +1,15 @@
+{
+  "name": "@chayns/swipeable",
+  "version": "0.1.0",
+  "description": "A wrapper component that reveals contextual actions on swipe.",
+  "keywords": [
+    "chayns",
+    "chayns-components",
+    "swipe",
+    "react",
+    "mobile"
+  ],
+  "repository": "github:tobitsoftware/chayns-swipeable",
+  "license": "MIT",
+  "author": "Leo Driesch <leonhard.driesch@tobit.com> (labs.tobit.com)"
+}
