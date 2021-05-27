@@ -49,5 +49,8 @@
   "peerDependencies": {
     "framer-motion": ">=4",
     "react": ">=16.8.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
