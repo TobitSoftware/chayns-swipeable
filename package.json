@@ -12,26 +12,29 @@
   "repository": "github:tobitsoftware/chayns-swipeable",
   "license": "MIT",
   "author": "Leo Driesch <leonhard.driesch@tobit.com> (labs.tobit.com)",
-  "source": "src/index.ts",
   "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
   "unpkg": "./dist/index.umd.js",
+  "module": "./dist/index.esm.js",
+  "source": "src/index.ts",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/"
   ],
   "scripts": {
     "build": "microbundle --jsx React.createElement --no-compress",
-    "watch": "microbundle watch --jsx React.createElement --no-compress",
-    "prepublishOnly": "rimraf dist/ && npm run build"
-  },
-  "peerDependencies": {
-    "framer-motion": ">=4",
-    "react": ">=16.8.0"
+    "format": "prettier . --write --ignore-path .gitignore",
+    "prepublishOnly": "rimraf dist/ && npm run build",
+    "watch": "microbundle watch --jsx React.createElement --no-compress"
   },
   "devDependencies": {
     "@types/react": "^17.0.8",
     "microbundle": "^0.13.1",
+    "prettier": "^2.3.0",
+    "prettier-plugin-packagejson": "^2.2.11",
     "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "framer-motion": ">=4",
+    "react": ">=16.8.0"
   }
 }
