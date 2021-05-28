@@ -1,18 +1,18 @@
-# @chayns/swipeable
+# chayns-swipeable
 
 A wrapper component that reveals contextual actions on swipe.
 
 ## Installation
 
 ```bash
-npm install @chayns/swipeable framer-motion
+npm install chayns-swipeable framer-motion
 ```
 
 ## Usage
 
 ```ts
-import { Swipeable } from "@chayns/swipeable";
-import "@chayns/swipeable/index.css";
+import { Swipeable } from "chayns-swipeable";
+import "chayns-swipeable/index.css";
 import { Icon } from "chayns-components";
 
 const MyComponent = () => (
