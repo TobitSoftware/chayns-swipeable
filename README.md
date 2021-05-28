@@ -12,7 +12,7 @@ npm install chayns-swipeable framer-motion
 
 ```ts
 import { Swipeable } from "chayns-swipeable";
-import "chayns-swipeable/index.css";
+import "chayns-swipeable/dist/index.css";
 import { Icon } from "chayns-components";
 
 const MyComponent = () => (
