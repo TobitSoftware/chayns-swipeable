@@ -189,6 +189,7 @@ export const Swipeable = ({
     >
       {reversedLeftActions.map((action, index) => (
         <SwipeableAction
+          key={index}
           position="left"
           backgroundColor={action.color}
           index={index}
@@ -209,6 +210,7 @@ export const Swipeable = ({
       <div className="swipeable__content">{children}</div>
       {rightActions.map((action, index) => (
         <SwipeableAction
+          key={index}
           position="right"
           backgroundColor={action.color}
           index={index}
