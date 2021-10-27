@@ -112,9 +112,7 @@ export const Swipeable = ({
   function handlePan(_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
     const currentXOffset = listItemXOffset.get();
 
-    console.debug('handlePan', info);
-
-    if (Math.abs(info.offset.x) > 10 || currentXOffset > 0) {
+    if (Math.abs(info.offset.x) > 25 || currentXOffset > 0) {
       listItemXOffset.set(currentXOffset + info.delta.x);
     }
   }
