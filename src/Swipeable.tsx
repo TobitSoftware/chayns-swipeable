@@ -68,7 +68,7 @@ export const Swipeable = ({
     }
   }
 
-  // Close an opened menu when anything outside of it is tapped
+  // Close an opened menu when anything outside it is tapped
   useEffect(() => {
     function closeCallback(event: MouseEvent | TouchEvent) {
       const eventTarget = event.target;
@@ -91,7 +91,7 @@ export const Swipeable = ({
   // Vibrate when the threshold is passed
   useEffect(
     () =>
-      listItemXOffset.onChange((newValue) => {
+      listItemXOffset.onChange((newValue: number) => {
         const previous = listItemXOffset.getPrevious();
 
         const hasCrossedLeftThreshold =
@@ -110,7 +110,13 @@ export const Swipeable = ({
   );
 
   function handlePan(_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
-    listItemXOffset.set(listItemXOffset.get() + info.delta.x);
+    const currentXOffset = listItemXOffset.get();
+
+    console.debug('handlePan', info);
+
+    if (Math.abs(info.offset.x) > 10 || currentXOffset > 0) {
+      listItemXOffset.set(currentXOffset + info.delta.x);
+    }
   }
 
   function handlePanEnd(
