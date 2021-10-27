@@ -22,11 +22,11 @@
   ],
   "scripts": {
     "build": "microbundle --jsx React.createElement --no-compress",
-    "format": "prettier . --write --ignore-path .gitignore",
-    "prepublishOnly": "rimraf dist/ && npm run build",
-    "watch": "microbundle watch --jsx React.createElement --no-compress",
     "check-types": "tsc",
-    "lint": "eslint src/"
+    "format": "prettier . --write --ignore-path .gitignore",
+    "lint": "eslint src/",
+    "prepublishOnly": "rimraf dist/ && npm run build",
+    "watch": "microbundle watch --jsx React.createElement --no-compress"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
