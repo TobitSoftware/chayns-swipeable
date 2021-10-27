@@ -48,6 +48,7 @@ export const Swipeable = ({
     window.innerWidth / 2,
     SWIPEABLE_ACTION_WIDTH * leftActions.length
   );
+
   const rightThreshold = -Math.max(
     window.innerWidth / 2,
     SWIPEABLE_ACTION_WIDTH * rightActions.length
@@ -112,15 +113,12 @@ export const Swipeable = ({
   function handlePan(_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
     const currentXOffset = listItemXOffset.get();
 
-    if (Math.abs(info.offset.x) > 25 || currentXOffset > 0) {
+    if (Math.abs(info.offset.x) > 30 || currentXOffset > 0) {
       listItemXOffset.set(currentXOffset + info.delta.x);
     }
   }
 
-  function handlePanEnd(
-    _: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo
-  ) {
+  function handlePanEnd() {
     const offset = listItemXOffset.get();
 
     if (offset > leftThreshold) {
@@ -132,44 +130,34 @@ export const Swipeable = ({
     } else {
       let state: "left-open" | "right-open" | "closed";
 
-      if (offset > 2) state = "left-open";
-      else if (offset < -2) state = "right-open";
-      else state = "closed";
-
-      const sPower = swipePower(info.offset.x, info.velocity.x);
+      if (offset > 2) {
+        state = "left-open";
+      } else if (offset < -2) {
+        state = "right-open";
+      } else {
+        state = "closed";
+      }
 
       // eslint-disable-next-line default-case
       switch (state) {
         case "left-open":
-          if (
-            offset < SWIPEABLE_ACTION_WIDTH ||
-            sPower < -SWIPE_CONFIDENCE_THRESHOLD
-          ) {
+          if (offset < SWIPEABLE_ACTION_WIDTH) {
             close();
           } else {
             open("left");
           }
           break;
         case "right-open":
-          if (
-            offset > -SWIPEABLE_ACTION_WIDTH ||
-            sPower > SWIPE_CONFIDENCE_THRESHOLD
-          ) {
+          if (offset > -SWIPEABLE_ACTION_WIDTH) {
             close();
           } else {
             open("right");
           }
           break;
         case "closed":
-          if (
-            offset > SWIPEABLE_ACTION_WIDTH ||
-            sPower > SWIPE_CONFIDENCE_THRESHOLD
-          ) {
+          if (offset > SWIPEABLE_ACTION_WIDTH) {
             open("left");
-          } else if (
-            offset < -SWIPEABLE_ACTION_WIDTH ||
-            sPower < -SWIPE_CONFIDENCE_THRESHOLD
-          ) {
+          } else if (offset < -SWIPEABLE_ACTION_WIDTH) {
             open("right");
           } else {
             close();
@@ -235,8 +223,3 @@ export const Swipeable = ({
     </motion.div>
   );
 };
-
-const SWIPE_CONFIDENCE_THRESHOLD = 5000;
-
-const swipePower = (offset: number, velocity: number) =>
-  Math.abs(offset) * velocity;
