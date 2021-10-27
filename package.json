@@ -1,6 +1,6 @@
 {
   "name": "chayns-swipeable",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A wrapper component that reveals contextual actions on swipe.",
   "keywords": [
     "chayns",
