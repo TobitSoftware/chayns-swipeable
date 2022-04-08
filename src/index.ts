@@ -1,2 +1,2 @@
-export { Swipeable } from "./Swipeable";
-export type { Props, SwipeableActionOptions } from "./Swipeable";
+export { Swipeable } from './Swipeable';
+export type { Props, SwipeableActionOptions } from './Swipeable';

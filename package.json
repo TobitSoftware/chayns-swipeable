@@ -1,58 +1,58 @@
 {
-  "name": "chayns-swipeable",
-  "version": "1.2.0",
-  "description": "A wrapper component that reveals contextual actions on swipe.",
-  "keywords": [
-    "chayns",
-    "chayns-components",
-    "swipe",
-    "react",
-    "mobile"
-  ],
-  "repository": "github:tobitsoftware/chayns-swipeable",
-  "license": "MIT",
-  "author": "Jannik Weise <jannik.weise@tobit.com> (labs.tobit.com)",
-  "main": "./dist/index.js",
-  "unpkg": "./dist/index.umd.js",
-  "module": "./dist/index.esm.js",
-  "source": "src/index.ts",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist/"
-  ],
-  "scripts": {
-    "build": "microbundle --jsx React.createElement --no-compress",
-    "check-types": "tsc",
-    "format": "prettier . --write --ignore-path .gitignore",
-    "lint": "eslint src/",
-    "prepublishOnly": "rimraf dist/ && npm run build",
-    "watch": "microbundle watch --jsx React.createElement --no-compress"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.32.0",
-    "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-flowtype": "^5.10.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.4.0",
-    "framer-motion": "^6.2.9",
-    "microbundle": "^0.14.2",
-    "prettier": "^2.6.2",
-    "prettier-plugin-packagejson": "^2.2.17",
-    "react": "^18.0.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.6.3"
-  },
-  "peerDependencies": {
-    "framer-motion": ">=6",
-    "react": ">=17"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+    "name": "chayns-swipeable",
+    "version": "1.2.0",
+    "description": "A wrapper component that reveals contextual actions on swipe.",
+    "keywords": [
+        "chayns",
+        "chayns-components",
+        "swipe",
+        "react",
+        "mobile"
+    ],
+    "repository": "github:tobitsoftware/chayns-swipeable",
+    "license": "MIT",
+    "author": "Jannik Weise <jannik.weise@tobit.com> (labs.tobit.com)",
+    "main": "./dist/index.js",
+    "unpkg": "./dist/index.umd.js",
+    "module": "./dist/index.esm.js",
+    "source": "src/index.ts",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist/"
+    ],
+    "scripts": {
+        "build": "microbundle --jsx React.createElement --no-compress",
+        "check-types": "tsc",
+        "format": "prettier . --write --ignore-path .gitignore",
+        "lint": "eslint src/",
+        "prepublishOnly": "rimraf dist/ && npm run build",
+        "watch": "microbundle watch --jsx React.createElement --no-compress"
+    },
+    "devDependencies": {
+        "@types/react": "^18.0.0",
+        "@typescript-eslint/eslint-plugin": "^4.33.0",
+        "@typescript-eslint/parser": "^4.33.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.32.0",
+        "eslint-config-react-app": "^6.0.0",
+        "eslint-plugin-flowtype": "^5.10.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-react": "^7.29.4",
+        "eslint-plugin-react-hooks": "^4.4.0",
+        "framer-motion": "^6.2.9",
+        "microbundle": "^0.14.2",
+        "prettier": "^2.6.2",
+        "prettier-plugin-packagejson": "^2.2.17",
+        "react": "^18.0.0",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.6.3"
+    },
+    "peerDependencies": {
+        "framer-motion": ">=6",
+        "react": ">=17"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
 }
