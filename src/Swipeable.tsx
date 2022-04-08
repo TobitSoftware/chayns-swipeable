@@ -1,7 +1,16 @@
 import { animate, motion, PanInfo, useMotionValue } from 'framer-motion';
-import React, { ReactElement, ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
+import React, {
+    ReactElement,
+    ReactNode,
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import { SwipeableAction, SWIPEABLE_ACTION_WIDTH } from './SwipeableAction';
 import { SwipeableActionButton } from './SwipeableActionButton';
+import { calcThreshold } from './utils/threshold';
 import './swipeable.css';
 
 export type SwipeableActionOptions = {
@@ -33,19 +42,25 @@ export const Swipeable = ({
     leftActions = [],
     rightActions = [],
 }: Props): ReactElement => {
+    const [leftThreshold, setLeftThreshold] = useState(
+        calcThreshold({
+            actionCount: leftActions.length,
+            direction: 'left',
+            width: window.innerWidth,
+        })
+    );
+
+    const [rightThreshold, setRightThreshold] = useState(
+        calcThreshold({
+            actionCount: rightActions.length,
+            direction: 'right',
+            width: window.innerWidth,
+        })
+    );
+
     const ref = useRef<HTMLDivElement | null>(null);
 
     const listItemXOffset = useMotionValue(0);
-
-    const leftThreshold = Math.max(
-        window.innerWidth / 2,
-        SWIPEABLE_ACTION_WIDTH * leftActions.length
-    );
-
-    const rightThreshold = -Math.max(
-        window.innerWidth / 2,
-        SWIPEABLE_ACTION_WIDTH * rightActions.length
-    );
 
     const close = useCallback(() => {
         animate(listItemXOffset, 0);
@@ -61,6 +76,28 @@ export const Swipeable = ({
                 animate(listItemXOffset, -SWIPEABLE_ACTION_WIDTH * rightActions.length);
         }
     }
+
+    useEffect(() => {
+        const width = ref.current?.parentElement?.offsetWidth;
+
+        if (typeof width === 'number' && width > 0) {
+            setLeftThreshold(
+                calcThreshold({
+                    actionCount: leftActions.length,
+                    direction: 'left',
+                    width,
+                })
+            );
+
+            setRightThreshold(
+                calcThreshold({
+                    actionCount: rightActions.length,
+                    direction: 'right',
+                    width,
+                })
+            );
+        }
+    }, [leftActions.length, rightActions.length]);
 
     // Close an opened menu when anything outside it is tapped
     useEffect(() => {
